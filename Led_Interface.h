@@ -10,6 +10,8 @@
 
 #include "Dio_Interface.h"
 #include "Led_Types.h"
+#include "Led_Cfg.h"
+
 void Led_Init(void);
 void Led_ON(led_id_t led);
 void Led_OFF(led_id_t led);

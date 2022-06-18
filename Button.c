@@ -1,9 +1,8 @@
-/*
+/**************************************
  * Button.c
- *
- *  Created on: Jun 12, 2022
- *      Author: Eng_Fawzi
- */
+ * Created on: Jun 12, 2022
+ * Author: Eng_Fawzi
+ *************************************/
 
 #include "Button_Interface.h"
 

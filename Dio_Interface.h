@@ -16,7 +16,8 @@
 
 void Dio_Configure_Channel(dio_port_t port, dio_pin_t pin , dio_direction_t direction);
 void Dio_Write_Channel(dio_port_t port, dio_pin_t pin , dio_level_t level);
-void DIO_Flip_Channel(dio_port_t port, dio_pin_t pin);
+void Dio_Write_Channel_Group(dio_port_t port,u8 mask,u8 data);
+void Dio_Flip_Channel(dio_port_t port, dio_pin_t pin);
 dio_level_t Dio_Read_Channel(dio_port_t port, dio_pin_t pin);
 
 

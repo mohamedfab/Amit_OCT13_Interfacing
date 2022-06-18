@@ -56,6 +56,7 @@ void Dio_Configure_Channel(dio_port_t port, dio_pin_t pin , dio_direction_t dire
 			break;
 	}
 }
+
 void Dio_Write_Channel(dio_port_t port, dio_pin_t pin , dio_level_t level)
 {
 	switch (port)
@@ -103,7 +104,7 @@ void Dio_Write_Channel(dio_port_t port, dio_pin_t pin , dio_level_t level)
 	}
 }
 
-void DIO_Flip_Channel(dio_port_t port, dio_pin_t pin)
+void Dio_Flip_Channel(dio_port_t port, dio_pin_t pin)
 {
 	switch(port)
 	{
@@ -132,14 +133,15 @@ dio_level_t Dio_Read_Channel(dio_port_t port, dio_pin_t pin)
 	switch (port)
 	{
 	case DIO_PORTA:
-		if (CHECK_BIT(DIO_PINA_REG,pin) == 1)
-		{
-			loc_result = DIO_HIGH;
-		}
-		else
-		{
-			loc_result = DIO_LOW;
-		}
+		loc_result=CHECK_BIT(DIO_PINA_REG,pin);
+//		if (CHECK_BIT(DIO_PINA_REG,pin) == 1)
+//		{
+//			loc_result = DIO_HIGH;
+//		}
+//		else
+//		{
+//			loc_result = DIO_LOW;
+//		}
 		break;
 
 	case DIO_PORTB:
@@ -176,4 +178,28 @@ dio_level_t Dio_Read_Channel(dio_port_t port, dio_pin_t pin)
 		break;
 	}
 	return loc_result;
+}
+
+
+
+void Dio_Write_Channel_Group(dio_port_t port,u8 mask,u8 data)
+{
+	switch (port)
+	{
+		case DIO_PORTA:
+		DIO_PORTA_REG = (DIO_PORTA_REG&~mask)|(data&mask);
+		break;
+
+		case DIO_PORTB:
+		DIO_PORTB_REG = (DIO_PORTB_REG&~mask)|(data&mask);
+		break;
+
+		case DIO_PORTC:
+			DIO_PORTC_REG = (DIO_PORTC_REG&~mask)|(data&mask);
+		break;
+
+		case DIO_PORTD:
+		DIO_PORTD_REG = (DIO_PORTD_REG&~mask)|(data&mask);
+		break;
+	}
 }
