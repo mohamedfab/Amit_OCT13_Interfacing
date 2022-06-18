@@ -2,6 +2,24 @@ Archive member included because of file (symbol)
 
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./02-Source/04-App/main.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                              ./02-Source/04-App/main.o (sprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (vfprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (fputc)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (__ultoa_invert)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__prologue_saves__)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__epilogue_restores__)
 
 Memory Configuration
 
@@ -17,11 +35,12 @@ signature        0x00840000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-LOAD ./Button.o
-LOAD ./Dio.o
-LOAD ./Lcd.o
-LOAD ./Led.o
-LOAD ./main.o
+LOAD ./02-Source/04-App/main.o
+LOAD ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+LOAD ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+LOAD ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+LOAD ./02-Source/02-HAL/01-LED/Src/Led.o
+LOAD ./02-Source/01-MCAL/01-DIO/Src/Dio.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
@@ -116,7 +135,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x56c
+.text           0x00000000     0x135c
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -154,6 +173,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.init3)
  *(.init3)
  *(.init4)
+ .init4         0x00000060       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
  *(.init4)
  *(.init5)
  *(.init5)
@@ -164,92 +185,125 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000060        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .init9         0x00000076        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  *(.init9)
  *(.text)
- .text          0x00000068        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x00000068                __vector_1
-                0x00000068                __vector_12
-                0x00000068                __bad_interrupt
-                0x00000068                __vector_6
-                0x00000068                __vector_3
-                0x00000068                __vector_11
-                0x00000068                __vector_13
-                0x00000068                __vector_17
-                0x00000068                __vector_19
-                0x00000068                __vector_7
-                0x00000068                __vector_5
-                0x00000068                __vector_4
-                0x00000068                __vector_9
-                0x00000068                __vector_2
-                0x00000068                __vector_15
-                0x00000068                __vector_8
-                0x00000068                __vector_14
-                0x00000068                __vector_10
-                0x00000068                __vector_16
-                0x00000068                __vector_18
-                0x00000068                __vector_20
- .text          0x0000006c        0x0 ./Button.o
- .text          0x0000006c        0x0 ./Dio.o
- .text          0x0000006c        0x0 ./Lcd.o
- .text          0x0000006c        0x0 ./Led.o
- .text          0x0000006c        0x0 ./main.o
- .text          0x0000006c        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000006c                . = ALIGN (0x2)
+ .text          0x0000007e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+                0x0000007e                __vector_1
+                0x0000007e                __vector_12
+                0x0000007e                __bad_interrupt
+                0x0000007e                __vector_6
+                0x0000007e                __vector_3
+                0x0000007e                __vector_11
+                0x0000007e                __vector_13
+                0x0000007e                __vector_17
+                0x0000007e                __vector_19
+                0x0000007e                __vector_7
+                0x0000007e                __vector_5
+                0x0000007e                __vector_4
+                0x0000007e                __vector_9
+                0x0000007e                __vector_2
+                0x0000007e                __vector_15
+                0x0000007e                __vector_8
+                0x0000007e                __vector_14
+                0x0000007e                __vector_10
+                0x0000007e                __vector_16
+                0x0000007e                __vector_18
+                0x0000007e                __vector_20
+ .text          0x00000082        0x0 ./02-Source/04-App/main.o
+ .text          0x00000082        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+ .text          0x00000082        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+ .text          0x00000082        0x0 ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+ .text          0x00000082        0x0 ./02-Source/02-HAL/01-LED/Src/Led.o
+ .text          0x00000082        0x0 ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .text          0x00000082        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00000082                . = ALIGN (0x2)
  *(.text.*)
- .text.Button_Is_Pressed
-                0x0000006c       0x4a ./Button.o
-                0x0000006c                Button_Is_Pressed
- .text.Button_Init
-                0x000000b6       0x20 ./Button.o
-                0x000000b6                Button_Init
- .text.Dio_Configure_Channel
-                0x000000d6       0xdc ./Dio.o
-                0x000000d6                Dio_Configure_Channel
- .text.Dio_Write_Channel
-                0x000001b2       0xde ./Dio.o
-                0x000001b2                Dio_Write_Channel
- .text.Dio_Flip_Channel
-                0x00000290       0x6a ./Dio.o
-                0x00000290                Dio_Flip_Channel
- .text.Dio_Read_Channel
-                0x000002fa       0x5c ./Dio.o
-                0x000002fa                Dio_Read_Channel
- .text.Dio_Write_Channel_Group
-                0x00000356       0x4a ./Dio.o
-                0x00000356                Dio_Write_Channel_Group
- .text.Lcd_Goto_Row_Column
-                0x000003a0        0x2 ./Lcd.o
-                0x000003a0                Lcd_Goto_Row_Column
- .text.Lcd_Pulse
-                0x000003a2       0x1c ./Lcd.o
+ .text.main     0x00000082       0x66 ./02-Source/04-App/main.o
+                0x00000082                main
+ .text.Lcd_Cmd  0x000000e8       0x7e ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                0x000000e8                Lcd_Cmd
  .text.Lcd_Display_Chr
-                0x000003be       0x32 ./Lcd.o
-                0x000003be                Lcd_Display_Chr
+                0x00000166       0x7e ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                0x00000166                Lcd_Display_Chr
  .text.Lcd_Display_str
-                0x000003f0       0x1e ./Lcd.o
-                0x000003f0                Lcd_Display_str
+                0x000001e4       0x98 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                0x000001e4                Lcd_Display_str
+ .text.Lcd_Goto_Row_Column
+                0x0000027c       0x90 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                0x0000027c                Lcd_Goto_Row_Column
  .text.Lcd_Init
-                0x0000040e       0x52 ./Lcd.o
-                0x0000040e                Lcd_Init
+                0x0000030c      0x69a ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                0x0000030c                Lcd_Init
+ .text.Button_Is_Pressed
+                0x000009a6       0x4a ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+                0x000009a6                Button_Is_Pressed
+ .text.Button_Init
+                0x000009f0       0x20 ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+                0x000009f0                Button_Init
  .text.Led_Toggle
-                0x00000460       0x2c ./Led.o
-                0x00000460                Led_Toggle
- .text.Led_OFF  0x0000048c       0x32 ./Led.o
-                0x0000048c                Led_OFF
- .text.Led_ON   0x000004be       0x32 ./Led.o
-                0x000004be                Led_ON
+                0x00000a10       0x2c ./02-Source/02-HAL/01-LED/Src/Led.o
+                0x00000a10                Led_Toggle
+ .text.Led_OFF  0x00000a3c       0x32 ./02-Source/02-HAL/01-LED/Src/Led.o
+                0x00000a3c                Led_OFF
+ .text.Led_ON   0x00000a6e       0x32 ./02-Source/02-HAL/01-LED/Src/Led.o
+                0x00000a6e                Led_ON
  .text.Led_Init
-                0x000004f0       0x3e ./Led.o
-                0x000004f0                Led_Init
- .text.main     0x0000052e       0x3a ./main.o
-                0x0000052e                main
- .text.libgcc   0x00000568        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000568                . = ALIGN (0x2)
+                0x00000aa0       0x3e ./02-Source/02-HAL/01-LED/Src/Led.o
+                0x00000aa0                Led_Init
+ .text.Dio_Configure_Channel
+                0x00000ade       0xdc ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                0x00000ade                Dio_Configure_Channel
+ .text.Dio_Write_Channel
+                0x00000bba       0xde ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                0x00000bba                Dio_Write_Channel
+ .text.Dio_Flip_Channel
+                0x00000c98       0x6a ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                0x00000c98                Dio_Flip_Channel
+ .text.Dio_Read_Channel
+                0x00000d02       0x5c ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                0x00000d02                Dio_Read_Channel
+ .text.Dio_Write_Channel_Group
+                0x00000d5e       0x4a ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                0x00000d5e                Dio_Write_Channel_Group
+ .text.libgcc   0x00000da8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000da8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.avr-libc
+                0x00000da8       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00000da8                sprintf
+ .text.avr-libc
+                0x00000df0      0x3ba c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00000df0                vfprintf
+ .text.avr-libc
+                0x000011aa       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x000011aa                strnlen_P
+ .text.avr-libc
+                0x000011c0       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x000011c0                strnlen
+ .text.avr-libc
+                0x000011d6       0x58 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x000011d6                fputc
+ .text.avr-libc
+                0x0000122e       0xbc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x0000122e                __ultoa_invert
+ .text.libgcc   0x000012ea       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x000012ea                __prologue_saves__
+ .text.libgcc   0x00001322       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001322                __epilogue_restores__
+                0x00001358                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000568        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000568                exit
-                0x00000568                _exit
+ .fini9         0x00001358        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001358                exit
+                0x00001358                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -268,50 +322,74 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000568        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001358        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000056c                _etext = .
+                0x0000135c                _etext = .
 
-.data           0x00800060        0x0 load address 0x0000056c
+.data           0x00800060       0x44 load address 0x0000135c
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .data          0x00800060        0x0 ./Button.o
- .data          0x00800060        0x0 ./Dio.o
- .data          0x00800060        0x0 ./Lcd.o
- .data          0x00800060        0x0 ./Led.o
- .data          0x00800060        0x0 ./main.o
- .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800060        0x3 ./02-Source/04-App/main.o
+ .data          0x00800063        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+ .data          0x00800063        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+ .data          0x00800063        0x0 ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+ .data          0x00800063        0x0 ./02-Source/02-HAL/01-LED/Src/Led.o
+ .data          0x00800063        0x0 ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x00800063        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  *(.data*)
+ .data.customChar
+                0x00800063       0x40 ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+                0x00800063                customChar
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x008000a4                . = ALIGN (0x2)
+ *fill*         0x008000a3        0x1 00
+                0x008000a4                _edata = .
+                0x008000a4                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0x0
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x008000a4        0x0
+                0x008000a4                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800060        0x0 ./Button.o
- .bss           0x00800060        0x0 ./Dio.o
- .bss           0x00800060        0x0 ./Lcd.o
- .bss           0x00800060        0x0 ./Led.o
- .bss           0x00800060        0x0 ./main.o
- .bss           0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x008000a4        0x0 ./02-Source/04-App/main.o
+ .bss           0x008000a4        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+ .bss           0x008000a4        0x0 ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+ .bss           0x008000a4        0x0 ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+ .bss           0x008000a4        0x0 ./02-Source/02-HAL/01-LED/Src/Led.o
+ .bss           0x008000a4        0x0 ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x008000a4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
  *(.bss*)
  *(COMMON)
-                0x00800060                PROVIDE (__bss_end, .)
-                0x0000056c                __data_load_start = LOADADDR (.data)
-                0x0000056c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008000a4                PROVIDE (__bss_end, .)
+                0x0000135c                __data_load_start = LOADADDR (.data)
+                0x000013a0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800060        0x0
-                0x00800060                PROVIDE (__noinit_start, .)
+.noinit         0x008000a4        0x0
+                0x008000a4                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800060                PROVIDE (__noinit_end, .)
-                0x00800060                _end = .
-                0x00800060                PROVIDE (__heap_start, .)
+                0x008000a4                PROVIDE (__noinit_end, .)
+                0x008000a4                _end = .
+                0x008000a4                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -329,21 +407,23 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x11e8
+.stab           0x00000000     0x288c
  *(.stab)
- .stab          0x00000000      0x348 ./Button.o
- .stab          0x00000348      0x42c ./Dio.o
-                                0x534 (size before relaxing)
- .stab          0x00000774      0x4b0 ./Lcd.o
-                                0x5b8 (size before relaxing)
- .stab          0x00000c24      0x2d0 ./Led.o
+ .stab          0x00000000      0x51c ./02-Source/04-App/main.o
+ .stab          0x0000051c     0x1974 ./02-Source/02-HAL/05-LCD/Src/Lcd.o
+                               0x1c38 (size before relaxing)
+ .stab          0x00001e90       0xf0 ./02-Source/02-HAL/05-LCD/Src/Lcd_Cfg.o
+                                0x180 (size before relaxing)
+ .stab          0x00001f80      0x240 ./02-Source/02-HAL/02-BUTTON/Src/Button.o
+                                0x348 (size before relaxing)
+ .stab          0x000021c0      0x2a0 ./02-Source/02-HAL/01-LED/Src/Led.o
                                 0x3d8 (size before relaxing)
- .stab          0x00000ef4      0x2f4 ./main.o
-                                0x5b8 (size before relaxing)
+ .stab          0x00002460      0x42c ./02-Source/01-MCAL/01-DIO/Src/Dio.o
+                                0x534 (size before relaxing)
 
-.stabstr        0x00000000      0xb9b
+.stabstr        0x00000000     0x120a
  *(.stabstr)
- .stabstr       0x00000000      0xb9b ./Button.o
+ .stabstr       0x00000000     0x120a ./02-Source/04-App/main.o
 
 .stab.excl
  *(.stab.excl)
