@@ -24,5 +24,6 @@ SUBDIRS := \
 02-Source/02-HAL/01-LED/Src \
 02-Source/02-HAL/02-BUTTON/Src \
 02-Source/02-HAL/05-LCD/Src \
+02-Source/02-HAL/06-SSD/Src \
 02-Source/04-App \
 

@@ -203,3 +203,8 @@ void Dio_Write_Channel_Group(dio_port_t port,u8 mask,u8 data)
 		break;
 	}
 }
+
+void Dio_PullUp_Enable(dio_port_t port, dio_pin_t pin)
+{
+	Dio_Write_Channel(port, pin, DIO_HIGH);
+}
