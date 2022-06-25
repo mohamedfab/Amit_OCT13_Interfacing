@@ -1,6 +1,5 @@
 /**************************************
  * 	main.c
- *
  *  Created on: Jun 10, 2022
  *	Author: Eng_Fawzi
  **************************************/
@@ -11,33 +10,27 @@
 #include <stdio.h>
 #include "SSD_Interface.h"
 #include "Button_Interface.h"
+#include "Keypad_Interface.h"
+#include "Adc_Interface.h"
+
+
 int main ()
 {
-	s8 counter =0 ;
-	SSD_Init();
-	Button_Init();
-
+	u16 result = 0;
+	u8 arr[4];
+	ADC_vidInit();
+	Lcd_Init();
+	Lcd_Cmd(_LCD_CURSOR_OFF);
+	 Lcd_Display_str("Result= ");
 	while (1)
 	{
-		if (Button_Is_Pressed(BUTTON0) == TRUE)
-		{
-			SSD_Display_With_Delay(counter,250);
-				counter++;
-			if (counter>=100)
-			{
-				counter = 0;
-			}
-		}
-		if (Button_Is_Pressed(BUTTON2) == TRUE)
-		{
-			_delay_ms(10);
-			counter--;
-			if (counter<0)
-			{
-				counter = 0;
-			}
-		}
-		SSD_Display(counter);
+	 result = ADC_vidRead(ADC_CHNL1);
+	 Lcd_Goto_Row_Column(0, 8);
+	 Lcd_Display_str("    ");
+	 Lcd_Goto_Row_Column(0, 8);
+	 sprintf(arr,"%d",result);
+	 Lcd_Display_str(arr);
+	 _delay_ms(500);
 	}
 	return 0;
 }

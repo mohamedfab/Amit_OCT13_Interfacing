@@ -4,7 +4,7 @@
  *  Created on: Jun 24, 2022
  *      Author: Eng_Fawzi
  */
-
+#include "Keypad_Interface.h"
 u8 Keypad_Layout[4][4]={
 						{'1','2','3','A'},
 						{'4','5','6','B'},
@@ -68,6 +68,7 @@ static s8 Keypad_Get_Column(s8 current_row)
 	if (Keypad_Get_Row() == current_row)
 	{
 		Loc_Column = 0;
+		return Loc_Column;
 	}
 
 	Dio_Write_Channel(DIO_PORTC, DIO_PIN4,DIO_HIGH);
@@ -78,6 +79,7 @@ static s8 Keypad_Get_Column(s8 current_row)
 	if (Keypad_Get_Row() == current_row)
 	{
 		Loc_Column = 1;
+		return Loc_Column;
 	}
 
 	Dio_Write_Channel(DIO_PORTC, DIO_PIN4,DIO_HIGH);
@@ -88,6 +90,7 @@ static s8 Keypad_Get_Column(s8 current_row)
 	if (Keypad_Get_Row() == current_row)
 	{
 		Loc_Column = 2;
+		return Loc_Column;
 	}
 
 	Dio_Write_Channel(DIO_PORTC, DIO_PIN4,DIO_HIGH);
@@ -98,6 +101,7 @@ static s8 Keypad_Get_Column(s8 current_row)
 	if (Keypad_Get_Row() == current_row)
 	{
 		Loc_Column = 3;
+		return Loc_Column;
 	}
 	return Loc_Column;
 }
@@ -136,6 +140,8 @@ u8 Keypad_Read(void)
 	s8 loc_Row = -1;
 	s8 loc_Col = -1;
 	u8 loc_button;
+
+	Keypad_Init();
 	if(Keypad_Is_Pressed() == TRUE)
 	{
 		loc_Row = Keypad_Get_Row();
