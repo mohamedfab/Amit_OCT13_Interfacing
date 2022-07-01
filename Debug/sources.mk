@@ -22,6 +22,8 @@ C_DEPS :=
 SUBDIRS := \
 02-Source/01-MCAL/01-DIO/Src \
 02-Source/01-MCAL/02-ADC/Src \
+02-Source/01-MCAL/03-GINT/Src \
+02-Source/01-MCAL/04-EXT_INT/Src \
 02-Source/02-HAL/01-LED/Src \
 02-Source/02-HAL/02-BUTTON/Src \
 02-Source/02-HAL/05-LCD/Src \

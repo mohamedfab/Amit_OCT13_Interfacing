@@ -13,15 +13,15 @@
 #include "Adc_Types.h"
 #include "Adc_Reg.h"
 
-#define REF           			((u8)1<<6)
-#define AVCC5V_REF    			((u8)1)
-#define INTERNAL_REF  			((u8)3)
+#define REF           					((u8)1<<6)
+#define AVCC5V_REF    					((u8)1)
+#define INTERNAL_REF  					((u8)3)
 
-#define ADC_LEFT_ADJUST_RESULT   ((u8)1<<5)     //ADC left adjust result
+#define ADC_LEFT_ADJUST_RESULT   		((u8)1<<5)     //ADC left adjust result
 
-#define ADC_ENABLE				 ((u8)1<<7)     //ADC Enable
-#define ADC_START_CONVERSION     ((u8)1<<6)     //ADC start conversion
-#define ADC_INTERRUPT_ENABLE     ((u8)1<<3)     //ADC interrupt enable
+#define ADC_ENABLE				 		((u8)1<<7)     //ADC Enable
+#define ADC_START_CONVERSION_BIT_NO     ((u8)6)     	//ADC start conversion
+#define ADC_INTERRUPT_ENABLE     		((u8)1<<3)     	//ADC interrupt enable
 /*					ADC prescaler			*/
 /*ADC frequancy must be between 50KHZ and 200KHZ*/
 #define ADCPS_2         (1)
@@ -37,7 +37,7 @@
 
 #define ADC_STEP		(4.8f)
 
-void ADC_vidInit(void);
-u16 ADC_vidRead(adc_Channel_t chnlNo);
+void ADC_Init(void);
+u16 ADC_Read(adc_Channel_t chnlNo);
 
 #endif /* 01_SOURCE_MCAL_ADC_INC_ADC_H_ */
